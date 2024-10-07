@@ -2,13 +2,18 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const sequelize = require('./config/db.config');
+const customerRoutes = require('./routes/customer.routes');
 
-require('./models/associations.model')
+require('./models/associations.model');
 
 app.use(cors());
-
 app.use(express.json());
+
+// Routes for films
 app.use('/films', require('./routes/film.routes'));
+
+//Routes for customer
+app.use(customerRoutes);
 
 sequelize.sync({ force: false, alter: false }).then(() => {
   console.log('Database synced without altering tables');
