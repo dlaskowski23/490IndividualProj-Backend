@@ -18,6 +18,16 @@ const Customer = sequelize.define('Customer', {
   email: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  store_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 1
+  },
+  address_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 1
   }
 }, {
   tableName: 'customer',
